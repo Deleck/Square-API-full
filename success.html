@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- link to the local custom styles for SqPaymentForm -->
+    <link rel="stylesheet" type="text/css" href="mysqpaymentform.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success!</title>
+</head>
+
+<body>
+    <div id="form-container" class="col-sm-12" style="padding-top: 100px;">
+        <div class="col-sm-12" style="text-align: center; font-size: 24px; font-weight: bold; color: white;">
+            <h4>Payment Successfully!</h4>
+            <img src="check.png"
+                style="max-height: 120px; display: block; margin: auto; margin-top: 20px; margin-bottom: 20px;">
+            <span id="ticket" style="padding-top: 20px;"></span>
+            <span>Details:</span>
+
+            <table class="table" style="font-size: 13px; color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col" style="text-align: center;">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td id="product"></td>
+                        <td id="quantity" style="text-align: center;"></td>
+                        <td>$1 USD</td>
+                    </tr>
+                </tbody>
+            </table>
+            <span id="total" style="padding-top: 20px;"></span><br><br>
+
+            <a href="/" class="btn btn-primary">Continue</a>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ticket").text("Ticket #" + (localStorage.getItem("ID") - 1));
+        $("#product").text(localStorage.getItem("product"));
+        $("#quantity").text("x" + localStorage.getItem("total"));
+        $("#total").text("Total: $" + localStorage.getItem("total") + " USD");
+    });
+</script>
+
+</html>
